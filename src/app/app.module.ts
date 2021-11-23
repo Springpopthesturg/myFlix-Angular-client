@@ -20,10 +20,14 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+ import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'user', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -34,6 +38,9 @@ const appRoutes: Routes = [
     LoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
+    UserProfileComponent,
+    ProfileEditComponent,
+    ProfileDeleteComponent,
   ],
   imports: [
     BrowserModule,

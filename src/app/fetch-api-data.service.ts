@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/internal/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,13 +13,13 @@ const apiUrl = 'https://noahs-movie-app.herokuapp.com/';
 
 const token = localStorage.getItem('token');
 
- const headers = {
-   headers: new HttpHeaders({
-     Authorization: 'Bearer ' + token,
-   }),
- };
+const headers = {
+  headers: new HttpHeaders({
+    Authorization: 'Bearer ' + token,
+  }),
+};
 
- @Injectable({
+@Injectable({
   providedIn: 'root',
 })
 export class FetchApiDataService {
@@ -183,8 +187,8 @@ export class FetchApiDataService {
    * @param username the name of the user to retrieve
    * @returns an Observable conianing a response
    */
-  public getUser(username: string): Observable<any> {
-    const response = this.http.get(apiUrl + '/users/' + username, headers);
+  public getUser(username: any): Observable<any> {
+    const response = this.http.get(apiUrl + 'users/' + username, headers);
     return response.pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
@@ -320,4 +324,4 @@ export class FetchApiDataService {
       catchError(this.handleError)
     );
   }
- }
+}
