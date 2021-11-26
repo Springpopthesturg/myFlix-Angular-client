@@ -23,11 +23,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserProfileComponent } from './user-profile/user-profile.component';
  import { ProfileEditComponent } from './profile-edit/profile-edit.component';
  import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
+import { DirectorCardComponent } from './director-card/director-card.component';
+import { GenreCardComponent } from './genre-card/genre-card.component';
+import { DescriptionCardComponent } from './description-card/description-card.component';
+import { NavbarComponent } from './navbar/navbar.component';
+ import { LayoutModule } from '@angular/cdk/layout';
+ import { MatToolbarModule } from '@angular/material/toolbar';
+ import { MatSidenavModule } from '@angular/material/sidenav';
+ import { MatListModule } from '@angular/material/list';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
-  { path: 'movies', component: MovieCardComponent },
-  { path: 'user', component: UserProfileComponent },
+  { path: 'movies', component: NavbarComponent },
+  { path: 'user', component: NavbarComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -41,6 +49,10 @@ const appRoutes: Routes = [
     UserProfileComponent,
     ProfileEditComponent,
     ProfileDeleteComponent,
+    DirectorCardComponent,
+    GenreCardComponent,
+    DescriptionCardComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +68,10 @@ const appRoutes: Routes = [
     FormsModule,
     MatIconModule,
     RouterModule.forRoot(appRoutes),
+    LayoutModule,
+     MatToolbarModule,
+     MatSidenavModule,
+     MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
